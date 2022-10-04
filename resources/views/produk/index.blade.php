@@ -5,6 +5,7 @@
 <h4 class="mt-5">Data produk</h4>
 
 <a href="{{ route('produk.create') }}" type="button" class="btn btn-success rounded-3">Tambah Data</a>
+<a href="{{ route('admin.index') }}" type="button" class="btn btn-danger rounded-3">Pindah ke admin</a>
 
 @if($message = Session::get('success'))
     <div class="alert alert-success mt-3" role="alert">
