@@ -26,22 +26,30 @@
                 <input type="text" class="form-control" id="id_produk" name="id_produk">
             </div>
 			<div class="mb-3">
-                <label for="nama_produk" class="form-label">merk</label>
+                <label for="merk" class="form-label">merk</label>
                 <input type="text" class="form-control" id="merk" name="merk">
             </div>
             <div class="mb-3">
-                <label for="alamat" class="form-label">stock</label>
+                <label for="stock" class="form-label">stock</label>
                 <input type="text" class="form-control" id="stock" name="stock">
             </div>
             <div class="mb-3">
-                <label for="username" class="form-label">harga</label>
+                <label for="harga" class="form-label">harga</label>
                 <input type="text" class="form-control" id="harga" name="harga">
             </div>
 
-			<div class="text-center">
-				<input type="submit" class="btn btn-primary" value="Tambah" />
-			</div>
-		</form>
+            <div class="mb-3">
+                <label for="id_admin" class="form-label">id_admin</label>
+                <input type="text" class="form-control" id="harga" name="id_admin">
+            </div>
+            <div class="d-flex">
+                <div class="text-center m-1">
+                    <input type="submit" class="btn btn-primary" value="Tambah" />
+                </div>
+                <div class="text-center m-1">
+                    <button class="btn btn-danger"><a href="{{ route('produk.index') }}" class="text-decoration-none text-light">Batal</a></button>
+                </div>
+            </div>		</form>
 	</div>
 </div>
 

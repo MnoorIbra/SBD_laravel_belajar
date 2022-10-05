@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
 {
     public function index() {
-        $datas = DB::select('select * from admin');
+        $datas = Admin::all();
+        // $datas = DB::select('select * from admin');
 
         return view('admin.index')
             ->with('datas', $datas);
@@ -30,7 +31,7 @@ class AdminController extends Controller
         ]);
 
         // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
-        DB::insert('INSERT INTO admin(id_admin, nama_admin, alamat, username, password) VALUES (:id_admin, :nama_admin, :alamat, :username, :password)',
+        DB::insert('INSERT INTO admins(id_admin, nama_admin, alamat, username, password) VALUES (:id_admin, :nama_admin, :alamat, :username, :password)',
         [
             'id_admin' => $request->id_admin,
             'nama_admin' => $request->nama_admin,
@@ -53,7 +54,7 @@ class AdminController extends Controller
     }
 
     public function edit($id) {
-        $data = DB::table('admin')->where('id_admin', $id)->first();
+        $data = DB::table('admins')->where('id_admin', $id)->first();
 
         return view('admin.edit')->with('data', $data);
     }
@@ -68,7 +69,7 @@ class AdminController extends Controller
         ]);
 
         // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
-        DB::update('UPDATE admin SET id_admin = :id_admin, nama_admin = :nama_admin, alamat = :alamat, username = :username, password = :password WHERE id_admin = :id',
+        DB::update('UPDATE admins SET id_admin = :id_admin, nama_admin = :nama_admin, alamat = :alamat, username = :username, password = :password WHERE id_admin = :id',
         [
             'id' => $id,
             'id_admin' => $request->id_admin,
@@ -93,7 +94,7 @@ class AdminController extends Controller
 
     public function delete($id) {
         // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
-        DB::delete('DELETE FROM admin WHERE id_admin = :id_admin', ['id_admin' => $id]);
+        DB::delete('DELETE FROM admins WHERE id_admin = :id_admin', ['id_admin' => $id]);
 
         // Menggunakan laravel eloquent
         // Admin::where('id_admin', $id)->delete();

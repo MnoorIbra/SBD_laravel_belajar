@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Hash;
 class ProdukController extends Controller
 {
     public function index() {
-        $datas = DB::select('select * from produk');
+        $datas = Produk::all();
+        // $datas = DB::select('select * from produk');
 
         return view('produk.index')
             ->with('datas', $datas);
@@ -26,16 +27,18 @@ class ProdukController extends Controller
             'merk' => 'required',
             'stock' => 'required',
             'harga' => 'required',
+            'id_admin' => 'required'
 
         ]);
 
         // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
-        DB::insert('INSERT INTO produk(id_produk, merk, stock, harga, id_admin) VALUES (:id_produk, :merk, :stock, :harga, 3)',
+        DB::insert('INSERT INTO produk(id_produk, merk, stock, harga, id_admin) VALUES (:id_produk, :merk, :stock, :harga, :id_admin)',
         [
             'id_produk' => $request->id_produk,
             'merk' => $request->merk,
             'stock' => $request->stock,
             'harga' => $request->harga,
+            'id_admin' => $request->id_admin
 
         ]
         );
@@ -64,16 +67,18 @@ class ProdukController extends Controller
             'merk' => 'required',
             'stock' => 'required',
             'harga' => 'required',
+            'id_admin' =>'required'
 
         ]);
 
         // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
-        DB::update('UPDATE produk SET id_produk = :id_produk, merk = :merk, stock = :stock, harga = :harga, id_admin = 3 WHERE id_produk = :id',
-        [
+        DB::update('UPDATE produk SET id_produk = :id_produk, merk = :merk, stock = :stock, harga = :harga, id_admin = :id_admin WHERE id_produk = :id',
+        [   'id' => $id,
             'id_produk' => $request->id_produk,
             'merk' => $request->merk,
             'stock' => $request->stock,
-            'harga' => $request->harga
+            'harga' => $request->harga,
+            'id_admin' => $request->id_admin
         ]
         );
 

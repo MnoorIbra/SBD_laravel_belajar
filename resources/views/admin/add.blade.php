@@ -41,9 +41,14 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" name="password">
             </div>
-			<div class="text-center">
-				<input type="submit" class="btn btn-primary" value="Tambah" />
-			</div>
+            <div class="d-flex">
+                <div class="text-center m-1">
+                    <input type="submit" class="btn btn-primary" value="Tambah" />
+                </div>
+                <div class="text-center m-1">
+                    <button class="btn btn-danger"><a href="{{ route('admin.index') }}" class="text-decoration-none text-light">Batal</a></button>
+                </div>
+            </div>
 		</form>
 	</div>
 </div>

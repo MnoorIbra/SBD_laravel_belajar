@@ -24,9 +24,10 @@
       </tr>
     </thead>
     <tbody>
+        <?php $i = 1 ?>
         @foreach ($datas as $data)
             <tr>
-                <td>{{ $data->id_admin }}</td>
+                <td>{{ $i }}</td>
                 <td>{{ $data->nama_admin }}</td>
                 <td>{{ $data->alamat }}</td>
                 <td>{{ $data->username }}</td>
@@ -61,6 +62,7 @@
                     </div>
                 </td>
             </tr>
+            <?php $i++?>
         @endforeach
         {{-- <tr>
             <td>1</td>
