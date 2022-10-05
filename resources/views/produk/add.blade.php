@@ -49,7 +49,8 @@
                 <div class="text-center m-1">
                     <button class="btn btn-danger"><a href="{{ route('produk.index') }}" class="text-decoration-none text-light">Batal</a></button>
                 </div>
-            </div>		</form>
+            </div>		
+        </form>
 	</div>
 </div>
 
